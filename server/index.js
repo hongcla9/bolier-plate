@@ -20,17 +20,18 @@ mongoose.connect('mongodb+srv://clara:1234@frontminiproject.aqqy1.mongodb.net/my
   .catch(err => console.log(err))
 
 
-app.get('/', (req, res) => res.send('Hello World!~~ '))
-
-app.get('/api/hello', (req, res) => res.send('Hello World!~~ '))
-
 app.post('/api/users/register', (req, res) => {
 
   //회원 가입 할떄 필요한 정보들을  client에서 가져오면 
   //그것들을  데이터 베이스에 넣어준다. 
   const user = new User(req.body)
-
+console.log('req.body',req.body)
+console.log('req.query',req.query)
+console.log('user.email',user.email);
+console.log('req.body.email',req.body.email);
+console.log('user',user);
   user.save((err, userInfo) => {
+    console.log('userInfo',userInfo)
     if (err) return res.json({ success: false, err })
     return res.status(200).json({
       success: true
