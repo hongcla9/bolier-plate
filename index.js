@@ -19,6 +19,9 @@ mongoose.connect('mongodb+srv://clara:1234@frontminiproject.aqqy1.mongodb.net/my
 }).then(() => console.log('MongoDB Connected...'))
   .catch(err => console.log(err))
 
+app.get('/api/hello', (req,res)=>{
+  res.send('안녕하세요~')
+})
 
 app.post('/api/users/register', (req, res) => {
 
